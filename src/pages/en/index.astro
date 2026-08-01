@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaButtons from '../../components/CtaButtons.astro';
+import QrBlock from '../../components/QrBlock.astro';
+import { getDict } from '../../i18n';
+
+const locale = 'en';
+const dict = getDict(locale);
+const path = dict.paths.home;
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: dict.faq.items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={dict.meta.homeTitle}
+  description={dict.meta.homeDesc}
+  path={path}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-inner">
+        <div class="mantra-block" aria-label="Invocations">
+          <p class="mantra-row1">{dict.hero.mantraRow1}</p>
+          <p class="mantra-row2">
+            <span>{dict.hero.mantraRow2a}</span>
+            <span class="mantra-gap" aria-hidden="true"></span>
+            <span>{dict.hero.mantraRow2b}</span>
+          </p>
+        </div>
+        <div class="brand-mark">Find My <em>Nakshatra</em></div>
+        <h1>{dict.hero.headline}</h1>
+        <p class="sub">{dict.hero.sub}</p>
+        <p class="credentials-line">{dict.hero.credentials}</p>
+        <div class="trust">{dict.hero.trust}</div>
+        <CtaButtons dict={dict} />
+        <p class="location-line">{dict.hero.location}</p>
+        <div class="geo-strip" aria-label="Service areas">
+          {dict.hero.geoChips.map((chip) => <span class="geo-chip">{chip}</span>)}
+        </div>
+      </div>
+      <div class="hero-ganesha">
+        <img
+          src="/ganesha-om.png"
+          alt={dict.hero.ganeshaAlt}
+          width="280"
+          height="248"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">{dict.how.title}</h2>
+      <div class="grid-3">
+        {
+          dict.how.steps.map((step, i) => (
+            <article class="card">
+              <div class="step-num">{i + 1}</div>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <h2 class="section-title">{dict.services.title}</h2>
+      <p class="section-sub">{dict.services.subtitle}</p>
+      <div class="grid-services">
+        {
+          dict.services.items.map((item) => (
+            <article class="card">
+              <div class="meta">{item.duration}</div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </article>
+          ))
+        }
+      </div>
+      <p class="note">{dict.services.note}</p>
+      <p>
+        <a class="btn btn-ghost" href={dict.paths.services}>{dict.services.cta}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>{dict.ctaBand.title}</h2>
+          <p>{dict.ctaBand.sub}</p>
+        </div>
+        <a class="btn btn-primary" href={dict.paths.book}>{dict.ctaBand.button}</a>
+      </div>
+      <QrBlock dict={dict} variant="card" />
+    </div>
+  </section>
+
+  <section class="section faq" style="padding-top:0">
+    <div class="container">
+      <h2 class="section-title">{dict.faq.title}</h2>
+      {
+        dict.faq.items.map((item) => (
+          <details>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

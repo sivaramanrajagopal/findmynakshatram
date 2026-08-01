@@ -1,0 +1,28 @@
+---
+import { site, whatsappUrl } from '../config';
+import type { Dict } from '../i18n';
+
+interface Props {
+  dict: Dict;
+  primaryHref?: string;
+  class?: string;
+}
+
+const { dict, primaryHref = dict.paths.book, class: className = '' } = Astro.props;
+const wa = whatsappUrl(dict.book.whatsappPrefill);
+---
+
+<div class={`hero-actions ${className}`}>
+  {
+    wa ? (
+      <a class="btn btn-whatsapp" href={wa} target="_blank" rel="noopener noreferrer">
+        {dict.book.whatsappCta}
+      </a>
+    ) : (
+      <a class="btn btn-primary" href={primaryHref}>
+        {dict.hero.ctaBook}
+      </a>
+    )
+  }
+  <a class="btn btn-ghost" href={`mailto:${site.email}`}>{dict.hero.ctaEmail}</a>
+</div>

@@ -1,0 +1,12 @@
+---
+# Find My Nakshatra
+.DS_Store
+dist
+.astro
+node_modules
+.env
+.env.*
+!.env.example
+.vscode
+AGENTS.md
+CLAUDE.md

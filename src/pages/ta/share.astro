@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QrBlock from '../../components/QrBlock.astro';
+import CtaButtons from '../../components/CtaButtons.astro';
+import { site } from '../../config';
+import { getDict } from '../../i18n';
+
+const locale = 'ta';
+const dict = getDict(locale);
+const path = dict.paths.share;
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={`${dict.share.title} | ${site.name}`}
+  description={dict.share.subtitle}
+  path={path}
+>
+  <section class="page-hero">
+    <div class="container" style="text-align:center">
+      <h1>{dict.share.title}</h1>
+      <p>{dict.share.subtitle}</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <QrBlock dict={dict} variant="card" />
+      <div class="cta-band" style="margin-top:2rem">
+        <h2>{dict.ctaBand.title}</h2>
+        <p>{dict.ctaBand.sub}</p>
+        <CtaButtons dict={dict} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

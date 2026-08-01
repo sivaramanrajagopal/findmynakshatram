@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getDict } from '../../i18n';
+
+const locale = 'en';
+const dict = getDict(locale);
+const path = dict.paths.about;
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={dict.meta.aboutTitle}
+  description={dict.meta.aboutDesc}
+  path={path}
+>
+  <section class="page-hero">
+    <div class="container prose">
+      <h1>{dict.about.title}</h1>
+      <p style="color:var(--ink);font-size:1.15rem">{dict.about.lead}</p>
+      {dict.about.body.map((para) => <p>{para}</p>)}
+      <ul class="points">
+        {dict.about.points.map((p) => <li>{p}</li>)}
+      </ul>
+      <p style="margin-top:2rem">
+        <a class="btn btn-primary" href={dict.paths.book}>{dict.ctaBand.button}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,285 @@
+---
+import '../styles/global.css';
+import { site } from '../config';
+import type { Dict, Locale } from '../i18n';
+import { swapLocalePath } from '../i18n';
+import QrBlock from '../components/QrBlock.astro';
+
+interface Props {
+  locale: Locale;
+  dict: Dict;
+  title: string;
+  description: string;
+  path: string;
+}
+
+const { locale, dict, title, description, path } = Astro.props;
+const canonical = new URL(path, site.domain).href;
+const otherLocale = dict.otherLocale;
+const otherPath = swapLocalePath(path, otherLocale);
+const otherHref = new URL(otherPath, site.domain).href;
+const enPath = locale === 'en' ? path : swapLocalePath(path, 'en');
+const taPath = locale === 'ta' ? path : swapLocalePath(path, 'ta');
+const ogImage = new URL(site.ogImage, site.domain).href;
+
+const businessSchema: Record<string, unknown> = {
+  '@type': 'ProfessionalService',
+  '@id': `${site.domain}/#business`,
+  name: site.name,
+  url: site.domain,
+  email: site.email,
+  image: ogImage,
+  logo: ogImage,
+  description,
+  priceRange: '₹₹',
+  areaServed: [
+    { '@type': 'City', name: 'Bangalore' },
+    { '@type': 'State', name: 'Karnataka' },
+    { '@type': 'State', name: 'Tamil Nadu' },
+    { '@type': 'Country', name: 'India' },
+    { '@type': 'Place', name: 'Worldwide' },
+    'Online',
+  ],
+  availableLanguage: ['en', 'ta'],
+  founder: {
+    '@type': 'Person',
+    name: site.owner,
+    jobTitle: 'Jothida Sironmani · Vedic Astrologer',
+    alumniOf: [
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Shree Maharishi College of Vedic Astrology',
+      },
+      {
+        '@type': 'EducationalOrganization',
+        name: 'Sri Ramanujar Astrology Institute, Chennai',
+      },
+    ],
+    knowsLanguage: ['en', 'ta'],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: site.city,
+      addressRegion: site.region,
+      addressCountry: site.country,
+    },
+  },
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceUrl: site.domain,
+    name: 'Zoom / Google Meet / WhatsApp',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.city,
+    addressRegion: site.region,
+    addressCountry: site.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 12.9716,
+    longitude: 77.5946,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    opens: '09:00',
+    closes: '21:00',
+  },
+};
+
+if (site.showPhonePublicly) {
+  businessSchema.telephone = site.phoneDisplay;
+  businessSchema.sameAs = [`https://wa.me/${site.whatsapp}`];
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    businessSchema,
+    {
+      '@type': 'WebSite',
+      '@id': `${site.domain}/#website`,
+      url: site.domain,
+      name: site.name,
+      inLanguage: ['en', 'ta'],
+      publisher: { '@id': `${site.domain}/#business` },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={dict.lang} dir={dict.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content={
+        locale === 'ta'
+          ? 'ஆன்லைன் ஜோதிடம், ஜாதகம், ஜோதிட ஆலோசனை, பெங்களூர் ஜோதிடர், திருமண பொருத்தம், தொழில் ஜோதிடம், Find My Nakshatra, Vedic astrology'
+          : 'vedic astrology consultation online, online astrologer India, Bangalore astrologer, nakshatra, marriage astrology, career horoscope, Tamil astrology, Find My Nakshatra, Parashari'
+      }
+    />
+    <meta name="author" content={site.owner} />
+    <meta name="geo.region" content={site.geo.region} />
+    <meta name="geo.placename" content={site.geo.placename} />
+    <meta name="geo.position" content={site.geo.position} />
+    <meta name="ICBM" content="12.9716, 77.5946" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={new URL(enPath, site.domain).href} />
+    <link rel="alternate" hreflang="ta" href={new URL(taPath, site.domain).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/en/', site.domain).href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={locale === 'ta' ? 'ta_IN' : 'en_IN'} />
+    <meta property="og:locale:alternate" content={locale === 'ta' ? 'en_IN' : 'ta_IN'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/ganesha-om.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Serif+Tamil:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href={dict.paths.home}>
+          <img
+            class="logo-mark"
+            src="/ganesha-om.png"
+            alt="Lord Ganesha Om — Find My Nakshatra"
+            width="36"
+            height="32"
+          />
+          Find My <span>Nakshatra</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href={dict.paths.home} aria-current={path === dict.paths.home ? 'page' : undefined}
+            >{dict.nav.home}</a
+          >
+          <a
+            href={dict.paths.services}
+            aria-current={path === dict.paths.services ? 'page' : undefined}
+            >{dict.nav.services}</a
+          >
+          <a href={dict.paths.about} aria-current={path === dict.paths.about ? 'page' : undefined}
+            >{dict.nav.about}</a
+          >
+          <a href={dict.paths.book} aria-current={path === dict.paths.book ? 'page' : undefined}
+            >{dict.nav.book}</a
+          >
+          <a
+            href={dict.paths.contact}
+            aria-current={path === dict.paths.contact ? 'page' : undefined}
+            >{dict.nav.contact}</a
+          >
+          <div class="lang-switch" aria-label="Language">
+            <a href={path} class="active">{dict.localeName === 'English' ? 'EN' : 'தமிழ்'}</a>
+            <a href={otherPath}>{dict.otherLocaleLabel === 'English' ? 'EN' : 'தமிழ்'}</a>
+          </div>
+        </nav>
+      </div>
+      <div class="container mobile-nav" aria-label="Mobile">
+        <a href={dict.paths.home} aria-current={path === dict.paths.home ? 'page' : undefined}
+          >{dict.nav.home}</a
+        >
+        <a
+          href={dict.paths.services}
+          aria-current={path === dict.paths.services ? 'page' : undefined}
+          >{dict.nav.services}</a
+        >
+        <a href={dict.paths.about} aria-current={path === dict.paths.about ? 'page' : undefined}
+          >{dict.nav.about}</a
+        >
+        <a href={dict.paths.book} aria-current={path === dict.paths.book ? 'page' : undefined}
+          >{dict.nav.book}</a
+        >
+        <a
+          href={dict.paths.contact}
+          aria-current={path === dict.paths.contact ? 'page' : undefined}
+          >{dict.nav.contact}</a
+        >
+        <a href={otherPath}>{dict.otherLocaleLabel}</a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img
+            src="/ganesha-om.png"
+            alt="Lord Ganesha with Om symbol"
+            width="52"
+            height="46"
+          />
+          <div>
+            <div class="logo">Find My <span>Nakshatra</span></div>
+            <p>{dict.footer.tagline}</p>
+            <p>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              {
+                site.showPhonePublicly ? (
+                  <>
+                    <br />
+                    <a href={`https://wa.me/${site.whatsapp}`}>{site.phoneDisplay}</a>
+                  </>
+                ) : null
+              }
+            </p>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href={dict.paths.services}>{dict.nav.services}</a>
+          <a href={dict.paths.about}>{dict.nav.about}</a>
+          <a href={dict.paths.book}>{dict.nav.book}</a>
+          <a href={dict.paths.contact}>{dict.nav.contact}</a>
+          <a href={dict.paths.share}>{dict.footer.share}</a>
+          <a href={dict.paths.privacy}>{dict.footer.privacy}</a>
+          <a href={dict.paths.terms}>{dict.footer.terms}</a>
+          <a href={otherHref}>{dict.otherLocaleLabel}</a>
+        </nav>
+        <QrBlock dict={dict} variant="compact" />
+      </div>
+      <div class="container">
+        <p class="disclaimer">{dict.footer.disclaimer}</p>
+        <p class="disclaimer">
+          © {new Date().getFullYear()} {site.name}. {dict.footer.rights}
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

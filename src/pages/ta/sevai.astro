@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QrBlock from '../../components/QrBlock.astro';
+import { getDict } from '../../i18n';
+
+const locale = 'ta';
+const dict = getDict(locale);
+const path = dict.paths.services;
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={dict.meta.servicesTitle}
+  description={dict.meta.servicesDesc}
+  path={path}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>{dict.services.title}</h1>
+      <p>{dict.services.subtitle}</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="grid-services">
+        {
+          dict.services.items.map((item) => (
+            <article class="card">
+              <div class="meta">{item.duration}</div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </article>
+          ))
+        }
+      </div>
+      <p class="note">{dict.services.note}</p>
+      <p style="margin-top:1.5rem">
+        <a class="btn btn-primary" href={dict.paths.book}>{dict.ctaBand.button}</a>
+      </p>
+      <div style="margin-top:2rem">
+        <QrBlock dict={dict} variant="card" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

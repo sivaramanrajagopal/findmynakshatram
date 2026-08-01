@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QrBlock from '../../components/QrBlock.astro';
+import { site, whatsappUrl } from '../../config';
+import { getDict } from '../../i18n';
+
+const locale = 'ta';
+const dict = getDict(locale);
+const path = dict.paths.book;
+const wa = whatsappUrl(dict.book.whatsappPrefill);
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={dict.meta.bookTitle}
+  description={dict.meta.bookDesc}
+  path={path}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>{dict.book.title}</h1>
+      <p>{dict.book.subtitle}</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="container" style="display:grid;gap:2rem;grid-template-columns:1.2fr 1fr">
+      <div>
+        <h2 style="font-size:1.25rem">{dict.book.checklistTitle}</h2>
+        <ul class="checklist">
+          {dict.book.checklist.map((item) => <li>{item}</li>)}
+        </ul>
+        <div class="hero-actions">
+          {
+            wa ? (
+              <a class="btn btn-whatsapp" href={wa} target="_blank" rel="noopener noreferrer">
+                {dict.book.whatsappCta}
+              </a>
+            ) : (
+              <a class="btn btn-primary" href={`mailto:${site.email}?subject=Book%20consultation`}>
+                {dict.book.emailCta}
+              </a>
+            )
+          }
+          <a class="btn btn-ghost" href={`mailto:${site.email}`}>{dict.book.emailCta}</a>
+        </div>
+        <p class="note">{dict.book.note}</p>
+        <aside class="card" style="margin-top:1.25rem">
+          <h3 style="font-size:1.1rem;margin-bottom:0.75rem">மின்னஞ்சல்</h3>
+          <p>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+          <h3 style="font-size:1.1rem;margin:1.25rem 0 0.75rem">{dict.services.title}</h3>
+          <ul class="points">
+            {dict.services.items.map((s) => <li>{s.title}</li>)}
+          </ul>
+        </aside>
+      </div>
+      <QrBlock dict={dict} variant="card" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @media (max-width: 800px) {
+    section.section > .container {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

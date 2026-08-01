@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QrBlock from '../../components/QrBlock.astro';
+import { site, whatsappUrl } from '../../config';
+import { getDict } from '../../i18n';
+
+const locale = 'en';
+const dict = getDict(locale);
+const path = dict.paths.contact;
+const wa = whatsappUrl(dict.book.whatsappPrefill);
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={dict.meta.contactTitle}
+  description={dict.meta.contactDesc}
+  path={path}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>{dict.contact.title}</h1>
+      <p>{dict.contact.subtitle}</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="container" style="display:grid;gap:2rem;grid-template-columns:1.1fr 0.9fr;align-items:start">
+      <div class="contact-list">
+        <div class="contact-item">
+          <span class="label">{dict.contact.emailLabel}</span>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">{dict.contact.whatsappLabel}</span>
+          {
+            wa ? (
+              <>
+                <a class="btn btn-whatsapp" href={wa} target="_blank" rel="noopener noreferrer">
+                  {dict.book.whatsappCta}
+                </a>
+                {
+                  site.showPhonePublicly ? (
+                    <p style="margin:0.75rem 0 0">
+                      <a href={wa}>{site.phoneDisplay}</a>
+                    </p>
+                  ) : (
+                    <p class="privacy-note">{dict.contactPrivacyNote}</p>
+                  )
+                }
+              </>
+            ) : (
+              <span>WhatsApp not configured</span>
+            )
+          }
+        </div>
+        <div class="contact-item">
+          <span class="label">{dict.contact.locationLabel}</span>
+          <span>{dict.contact.locationValue}</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">{dict.contact.languagesLabel}</span>
+          <span>{dict.contact.languagesValue}</span>
+        </div>
+        <p>
+          <a class="btn btn-primary" href={dict.paths.book}>{dict.ctaBand.button}</a>
+        </p>
+      </div>
+      <QrBlock dict={dict} variant="card" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @media (max-width: 800px) {
+    section.section > .container {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getDict } from '../../i18n';
+import { legalTa } from '../../i18n/legal';
+
+const locale = 'ta';
+const dict = getDict(locale);
+const path = dict.paths.privacy;
+const legal = legalTa;
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={legal.privacyTitle}
+  description={legal.privacyDesc}
+  path={path}
+>
+  <section class="page-hero">
+    <div class="container legal-block">
+      <h1>{legal.privacyHeading}</h1>
+      <p>{legal.updated}</p>
+      {
+        legal.privacySections.map((s) => (
+          <>
+            <h2>{s.title}</h2>
+            <p>{s.body}</p>
+          </>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

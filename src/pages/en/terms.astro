@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getDict } from '../../i18n';
+import { legalEn } from '../../i18n/legal';
+
+const locale = 'en';
+const dict = getDict(locale);
+const path = dict.paths.terms;
+const legal = legalEn;
+---
+
+<BaseLayout
+  locale={locale}
+  dict={dict}
+  title={legal.termsTitle}
+  description={legal.termsDesc}
+  path={path}
+>
+  <section class="page-hero">
+    <div class="container legal-block">
+      <h1>{legal.termsHeading}</h1>
+      <p>{legal.updated}</p>
+      {
+        legal.termsSections.map((s) => (
+          <>
+            <h2>{s.title}</h2>
+            <p>{s.body}</p>
+          </>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

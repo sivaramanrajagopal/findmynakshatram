@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://findmynakshatra.com/sitemap-index.xml
