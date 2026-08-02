@@ -52,7 +52,8 @@ showPhonePublicly: false           // recommended — never print digits on page
 
 1. Local: copy `.env.example` → `.env` and set `PUBLIC_WHATSAPP=91XXXXXXXXXX`
 2. Vercel → **Settings → Environment Variables** → `PUBLIC_WHATSAPP` = digits only with country code  
-3. Redeploy after adding/changing the variable  
+3. Optional analytics: add `PUBLIC_GA_MEASUREMENT_ID` = `G-XXXXXXXXXX` (from Google Analytics → Admin → Data streams)  
+4. Redeploy after adding/changing variables  
 
 Never commit `.env` or put your real number in README / this file.
 
@@ -261,6 +262,7 @@ Keep **Namecheap BasicDNS** (do not switch to “Custom DNS” / Vercel nameserv
 | What | File |
 |------|------|
 | WhatsApp number (private) | Vercel / `.env` → `PUBLIC_WHATSAPP` |
+| Google Analytics (GA4) | Vercel / `.env` → `PUBLIC_GA_MEASUREMENT_ID` |
 | Email / phone visibility flag | `src/config.ts` |
 | English copy | `src/i18n/en.ts` |
 | Tamil copy | `src/i18n/ta.ts` |

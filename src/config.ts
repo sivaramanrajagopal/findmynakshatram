@@ -4,6 +4,7 @@
  * WhatsApp number is NOT stored in git. Set it in:
  * - Local: `.env` (see `.env.example`)
  * - Vercel: Project → Settings → Environment Variables → PUBLIC_WHATSAPP
+ * - Analytics (optional): PUBLIC_GA_MEASUREMENT_ID = G-XXXXXXXXXX
  *
  * Keep showPhonePublicly = false so digits are never printed on pages.
  * Buttons still open WhatsApp via wa.me when PUBLIC_WHATSAPP is set.
@@ -15,6 +16,10 @@ const whatsappDigits =
 
 const phoneDisplay =
   String(import.meta.env.PUBLIC_PHONE_DISPLAY ?? '').trim();
+
+const gaMeasurementId = String(import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? '')
+  .trim()
+  .replace(/[^A-Z0-9-]/gi, '');
 
 export const site = {
   name: 'Find My Nakshatra',
@@ -28,6 +33,8 @@ export const site = {
   whatsapp: whatsappDigits,
   /** Shown only if showPhonePublicly is true */
   phoneDisplay,
+  /** GA4 Measurement ID from PUBLIC_GA_MEASUREMENT_ID (e.g. G-XXXXXXXX) */
+  gaMeasurementId,
   /** Recommended: false — button says "WhatsApp", not the digits */
   showPhonePublicly: false as boolean,
   appUrl: '',

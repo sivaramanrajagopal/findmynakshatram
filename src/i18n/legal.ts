@@ -7,7 +7,7 @@ export const legalEn = {
     'Terms of Use for Find My Nakshatra online Vedic astrology consultations.',
   privacyHeading: 'Privacy Policy',
   termsHeading: 'Terms of Use',
-  updated: 'Last updated: 1 August 2026',
+  updated: 'Last updated: 2 August 2026',
   privacySections: [
     {
       title: '1. Who we are',
@@ -34,8 +34,8 @@ export const legalEn = {
       body: 'Email contact@findmynakshatra.com to request correction or deletion of data you shared with us, subject to legal limits.',
     },
     {
-      title: '7. Website',
-      body: 'Our website may use standard hosting logs and analytics if enabled later. We aim to collect only what is needed to run the site securely.',
+      title: '7. Website & analytics',
+      body: 'Our website may use Google Analytics (GA4) to understand page visits (for example pages viewed and approximate location). IP addresses are anonymised where supported. Google processes this data under its own privacy policy. We do not use analytics to sell your personal data. Hosting logs may also be kept briefly for security.',
     },
   ],
   termsSections: [
@@ -86,7 +86,7 @@ export const legalTa = {
   termsDesc: 'Find My Nakshatra ஆன்லைன் வேத ஜோதிட ஆலோசனைக்கான பயன்பாட்டு விதிமுறைகள்.',
   privacyHeading: 'தனியுரிமைக் கொள்கை',
   termsHeading: 'பயன்பாட்டு விதிமுறைகள்',
-  updated: 'கடைசியாக புதுப்பிக்கப்பட்டது: 1 ஆகஸ்ட் 2026',
+  updated: 'கடைசியாக புதுப்பிக்கப்பட்டது: 2 ஆகஸ்ட் 2026',
   privacySections: [
     {
       title: '1. நாங்கள் யார்',
@@ -113,8 +113,8 @@ export const legalTa = {
       body: 'திருத்தம் அல்லது நீக்கத்திற்கு contact@findmynakshatra.com க்கு எழுதுங்கள்.',
     },
     {
-      title: '7. வலைத்தளம்',
-      body: 'ஹோஸ்டிங் பதிவுகள்/அனலிட்டிக்ஸ் பின்னர் இயக்கப்படலாம். தேவையான அளவே சேகரிக்க இலக்கு.',
+      title: '7. வலைத்தளம் & பகுப்பாய்வு',
+      body: 'பக்கப் பார்வைகளைப் புரிந்துகொள்ள Google Analytics (GA4) பயன்படுத்தப்படலாம் (எ.கா. பக்கங்கள், தோராயமான இருப்பிடம்). ஆதரிக்கப்படும் இடங்களில் IP மறைக்கப்படும். Google தனது தனியுரிமைக் கொள்கையின் கீழ் இதைச் செயல்படுத்தும். பகுப்பாய்வு மூலம் தனிப்பட்ட தரவை விற்கமாட்டோம். பாதுகாப்புக்காக ஹோஸ்டிங் பதிவுகள் சிறிது காலம் வைக்கப்படலாம்.',
     },
   ],
   termsSections: [
