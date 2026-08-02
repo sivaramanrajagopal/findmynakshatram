@@ -33,6 +33,9 @@ export const site = {
   appUrl: '',
   ogImage: '/og-image.png',
   qrImage: '/qr-findmynakshatra.png',
+  /** Generated at build from PUBLIC_WHATSAPP — opens booking chat */
+  qrWhatsappImage: '/qr-whatsapp.svg',
+  qrWhatsappPng: '/qr-whatsapp.png',
   geo: {
     placename: 'Bangalore',
     region: 'IN-KA',

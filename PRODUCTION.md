@@ -280,7 +280,9 @@ git push origin main
 
 Vercel **auto-deploys** on push to `main`. Check the Deployments tab for success.
 
-### Regenerate QR (if domain/URL strategy changes)
+### Regenerate QR codes
+
+**Website QR** (SEO / share — opens findmynakshatra.com):
 
 ```bash
 cd findmynakshatra
@@ -289,13 +291,23 @@ const QRCode = require('qrcode');
 QRCode.toFile('public/qr-findmynakshatra.png', 'https://findmynakshatra.com', {
   width: 512, margin: 2,
   color: { dark: '#232F3E', light: '#FFFFFF' }
-}).then(() => console.log('QR updated'));
+}).then(() => console.log('Website QR updated'));
 "
 git add public/qr-findmynakshatra.png
-git commit -m "Refresh QR code"
+git commit -m "Refresh website QR code"
 git push
 ```
 
+**WhatsApp booking QR** (primary for cards/posters — opens chat):
+
+Generated automatically on `npm run build` / `npm run dev` from `PUBLIC_WHATSAPP`.  
+Includes a WhatsApp mark in the centre. Files are gitignored (`public/qr-whatsapp.*`).
+
+1. Set `PUBLIC_WHATSAPP` in `.env` (local) and Vercel Environment Variables.  
+2. Run `npm run qr:whatsapp` or a full build.  
+3. Download from the Share page: **Download WhatsApp QR**.
+
+Print the **WhatsApp QR** on visiting cards; use the **website QR** for bios / SEO sharing.
 ---
 
 ## 8. Troubleshooting / fixing issues

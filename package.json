@@ -6,8 +6,9 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "qr:whatsapp": "node scripts/generate-whatsapp-qr.mjs",
+    "dev": "npm run qr:whatsapp && astro dev",
+    "build": "npm run qr:whatsapp && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

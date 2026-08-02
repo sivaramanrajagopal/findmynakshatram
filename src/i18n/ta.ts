@@ -200,16 +200,27 @@ export const ta = {
   },
 
   share: {
-    title: 'Find My Nakshatra பகிரவும்',
-    subtitle: 'இந்த QR குறியீட்டை ஸ்கேன் செய்யவும், அல்லது WhatsApp / மின்னஞ்சல் மூலம் பகிரவும்.',
+    title: 'பகிர் & QR மூலம் பதிவு',
+    subtitle:
+      'பச்சை WhatsApp QR ஸ்கேன் செய்து ஒரே அடியில் பதிவு செய்யுங்கள் — அல்லது வலைத்தள QR-ஐ பகிருங்கள்.',
     download: 'QR படம் பதிவிறக்கம்',
+    downloadWa: 'WhatsApp QR பதிவிறக்கம்',
+    downloadSite: 'வலைத்தள QR பதிவிறக்கம்',
     linkLabel: 'வலைத்தள இணைப்பு',
-    tip: 'கார்டுகள், WhatsApp நிலை, Google Business இல் QR பயன்படுத்தலாம்.',
-    whatsappShare: 'WhatsApp-ல் பகிர்',
+    tip: 'SEO / பதிவுகளுக்கு வலைத்தள QR பயன்படுத்துங்கள்.',
+    whatsappShare: 'தளத்தை WhatsApp-ல் பகிர்',
     emailShare: 'மின்னஞ்சலில் பகிர்',
     emailSubject: 'Find My Nakshatra — வேத ஜோதிட ஆலோசனை',
     message:
       'Find My Nakshatra — தமிழ் & ஆங்கிலத்தில் வேத ஜோதிட ஆலோசனை. பார்க்க: https://findmynakshatra.com',
+    bookQrTitle: 'WhatsApp-ல் பதிவு',
+    bookQrLead: 'வேகமான வழி — ஸ்கேன் செய்து அரட்டை. படிவங்கள் இல்லை.',
+    bookQrTip: 'கார்டுகள், போஸ்டர்கள், Google Business இல் அச்சிடுங்கள். WhatsApp குறியை பாருங்கள்.',
+    bookQrAlt: 'WhatsApp QR — ஆலோசனை பதிவுக்கு ஸ்கேன் செய்யுங்கள்',
+    bookQrCompact: 'ஸ்கேன் செய்து பதிவு',
+    websiteQrTitle: 'வலைத்தளம் பகிர்',
+    websiteQrLead: 'findmynakshatra.com திறக்கும் — SEO & AI கண்டறிதலுக்கு சிறந்தது.',
+    whatsappQrPrefill: 'வணக்கம், Find My Nakshatra மூலம் ஆலோசனை பதிவு செய்ய விரும்புகிறேன்.',
   },
 
   contactPrivacyNote:
