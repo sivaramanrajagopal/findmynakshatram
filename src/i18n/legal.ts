@@ -11,7 +11,7 @@ export const legalEn = {
   privacySections: [
     {
       title: '1. Who we are',
-      body: 'Find My Nakshatra is operated by Sivaraman, based in Bangalore, India. Contact: contact@findmynakshatra.com.',
+      body: 'Find My Nakshatra is operated by Sivaraman Rajagopal, based in Bangalore, India. Contact: contact@findmynakshatra.com.',
     },
     {
       title: '2. What we collect',
@@ -65,7 +65,7 @@ export const legalEn = {
     },
     {
       title: '7. Limitation of liability',
-      body: 'To the fullest extent permitted under Indian law, Find My Nakshatra and Sivaraman are not liable for decisions you make based on a consultation or website content. Your remedy is to stop using the service.',
+      body: 'To the fullest extent permitted under Indian law, Find My Nakshatra and Sivaraman Rajagopal are not liable for decisions you make based on a consultation or website content. Your remedy is to stop using the service.',
     },
     {
       title: '8. Conduct',
@@ -90,7 +90,7 @@ export const legalTa = {
   privacySections: [
     {
       title: '1. நாங்கள் யார்',
-      body: 'Find My Nakshatra — சிவராமன் (பெங்களூர், இந்தியா). தொடர்பு: contact@findmynakshatra.com.',
+      body: 'Find My Nakshatra — சிவராமன் ராஜகோபால் (பெங்களூர், இந்தியா). தொடர்பு: contact@findmynakshatra.com.',
     },
     {
       title: '2. என்ன சேகரிக்கிறோம்',
@@ -144,7 +144,7 @@ export const legalTa = {
     },
     {
       title: '7. பொறுப்பு வரம்பு',
-      body: 'இந்திய சட்டம் அனுமதிக்கும் அளவில், ஆலோசனை அடிப்படையிலான முடிவுகளுக்கு பொறுப்பல்ல. நிறுத்துவதே தீர்வு.',
+      body: 'இந்திய சட்டம் அனுமதிக்கும் அளவில், Find My Nakshatra மற்றும் சிவராமன் ராஜகோபால் ஆலோசனை அடிப்படையிலான முடிவுகளுக்கு பொறுப்பல்ல. நிறுத்துவதே தீர்வு.',
     },
     {
       title: '8. நடத்தை',

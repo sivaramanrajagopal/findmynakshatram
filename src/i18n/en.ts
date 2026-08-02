@@ -28,15 +28,15 @@ export const en = {
     homeTitle:
       'Find My Nakshatra | Jothida Sironmani — Online Worldwide',
     homeDesc:
-      'Jothida Sironmani Sivaraman (MA, Shree Maharishi College of Vedic Astrology). Online Parashari consultations worldwide via Zoom & Google Meet — English & Tamil. Based in Bangalore.',
+      'Jothida Sironmani Sivaraman Rajagopal (MA, Shree Maharishi College of Vedic Astrology). Online Parashari consultations worldwide via Zoom & Google Meet — English & Tamil. Based in Bangalore.',
     servicesTitle:
       'Vedic Astrology Services Online Worldwide | Marriage, Career, Muhurta',
     servicesDesc:
       'Online Vedic astrology: general reading, marriage compatibility, career, muhurta, prashna. Zoom / Google Meet. English and Tamil. Jothida Sironmani · MA astrologer.',
     aboutTitle:
-      'About Sivaraman — Jothida Sironmani, MA Vedic Astrology | Find My Nakshatra',
+      'About Sivaraman Rajagopal — Jothida Sironmani, MA Vedic Astrology | Find My Nakshatra',
     aboutDesc:
-      'Sivaraman, Jothida Sironmani (Sri Ramanujar Astrology Institute, Chennai), holds an MA from Shree Maharishi College of Vedic Astrology. Online consultations worldwide in English and Tamil.',
+      'Sivaraman Rajagopal, Jothida Sironmani (Sri Ramanujar Astrology Institute, Chennai), holds an MA from Shree Maharishi College of Vedic Astrology. Online consultations worldwide in English and Tamil.',
     bookTitle: 'Book Online Astrology Consultation Worldwide | Find My Nakshatra',
     bookDesc:
       'Book a Zoom or Google Meet Vedic astrology consultation. English and Tamil. Jothida Sironmani · based in Bangalore, serving clients globally.',
@@ -122,7 +122,7 @@ export const en = {
 
   about: {
     title: 'About',
-    lead: 'I am Sivaraman, son of Rajagopal — carrying a Trichy family legacy of Vedic astrology.',
+    lead: 'I am Sivaraman Rajagopal, son of Rajagopal — carrying a Trichy family legacy of Vedic astrology.',
     body: [
       'My father was a seasoned astrologer and Vedic pandit in Trichy. That lineage shapes how I read charts today — with discipline, clarity, and respect for classical Parashari methods.',
       'I hold an MA in Astrology from Shree Maharishi College of Vedic Astrology. I was titled Jothida Sironmani at Sri Ramanujar Astrology Institute, Chennai. My MA research focused on career prediction and peak-performance windows for high-achieving personalities — plus how the Moon reflects mood swings in everyday life.',

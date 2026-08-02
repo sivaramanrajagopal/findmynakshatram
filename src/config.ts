@@ -20,7 +20,7 @@ export const site = {
   name: 'Find My Nakshatra',
   domain: 'https://www.findmynakshatra.com',
   email: 'contact@findmynakshatra.com',
-  owner: 'Sivaraman',
+  owner: 'Sivaraman Rajagopal',
   city: 'Bangalore',
   region: 'Karnataka',
   country: 'IN',
