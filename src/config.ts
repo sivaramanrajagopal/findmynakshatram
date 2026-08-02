@@ -17,7 +17,9 @@ const whatsappDigits =
 const phoneDisplay =
   String(import.meta.env.PUBLIC_PHONE_DISPLAY ?? '').trim();
 
-const gaMeasurementId = String(import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? '')
+const gaMeasurementId = String(
+  import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? 'G-HMJZ590LQ9',
+)
   .trim()
   .replace(/[^A-Z0-9-]/gi, '');
 
