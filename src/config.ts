@@ -31,7 +31,7 @@ export const site = {
   /** Recommended: false — button says "WhatsApp", not the digits */
   showPhonePublicly: false as boolean,
   appUrl: '',
-  ogImage: '/og-image.png',
+  ogImage: '/og-image.jpg',
   qrImage: '/qr-findmynakshatra.png',
   /** Generated at build from PUBLIC_WHATSAPP — opens booking chat */
   qrWhatsappImage: '/qr-whatsapp.svg',

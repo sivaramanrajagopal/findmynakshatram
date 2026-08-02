@@ -204,29 +204,29 @@ export const en = {
   share: {
     title: 'Share & book with QR',
     subtitle:
-      'Scan the green WhatsApp QR to book in one step — or share the website QR for Google, ChatGPT, and friends.',
+      'Scan the WhatsApp QR to book a consultation, or share the website QR with others.',
     download: 'Download QR image',
     downloadWa: 'Download WhatsApp QR',
     downloadSite: 'Download website QR',
     linkLabel: 'Website link',
-    tip: 'Use the website QR for posts, bios, and SEO-friendly sharing.',
+    tip: 'Use the website QR on cards, social profiles, and printed materials.',
     whatsappShare: 'Share site on WhatsApp',
     emailShare: 'Share by email',
     emailSubject: 'Find My Nakshatra — Vedic astrology consultation',
     message:
       'Find My Nakshatra — Vedic astrology consultation in English & Tamil. Visit https://findmynakshatra.com',
     bookQrTitle: 'Book on WhatsApp',
-    bookQrLead: 'Fastest path — scan and chat. No forms.',
-    bookQrTip: 'Print this on visiting cards, posters, and Google Business. Look for the WhatsApp mark.',
+    bookQrLead: 'Scan to open WhatsApp and send a booking message.',
+    bookQrTip: 'Ideal for visiting cards, posters, and Google Business posts.',
     bookQrAlt: 'WhatsApp QR — scan to book a consultation',
     bookQrCompact: 'Scan to book',
     websiteQrTitle: 'Share website',
-    websiteQrLead: 'Opens findmynakshatra.com — best for SEO & AI discovery.',
+    websiteQrLead: 'Opens findmynakshatra.com — share your practice online.',
     whatsappQrPrefill: 'Namaste, I want to book a consultation with Find My Nakshatra.',
   },
 
   contactPrivacyNote:
-    'For privacy, we do not publish the mobile number as text. Use WhatsApp or email — only the site owner can change booking contacts.',
+    'For privacy, the mobile number is not shown as text. Please use WhatsApp or email to reach us.',
 
   ctaBand: {
     title: 'Ready for a clear reading?',

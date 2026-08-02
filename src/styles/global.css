@@ -569,13 +569,21 @@ p {
   margin-top: 0.35rem;
 }
 
+.page-split {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: start;
+}
+
 .qr-duo {
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   align-items: start;
   max-width: 920px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .qr-card {
@@ -856,6 +864,19 @@ p {
 
   .qr-card {
     max-width: 100%;
+  }
+
+  .page-split {
+    grid-template-columns: 1fr;
+  }
+
+  .qr-duo {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .site-footer {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
   }
 
   .hero-actions {

@@ -8,10 +8,13 @@ interface Props {
   dict: Dict;
   /** compact = footer; card = share/book/contact/home */
   variant?: 'compact' | 'card';
+  /** all = WhatsApp + website QR; booking = WhatsApp QR only */
+  focus?: 'all' | 'booking';
 }
 
-const { dict, variant = 'compact' } = Astro.props;
+const { dict, variant = 'compact', focus = 'all' } = Astro.props;
 const isCard = variant === 'card';
+const showWebsiteQr = focus === 'all';
 
 const shareMessage = dict.share.message;
 const waShareHref = `https://wa.me/?text=${encodeURIComponent(shareMessage)}`;
@@ -70,44 +73,48 @@ const waQrSrc = fs.existsSync(path.join(publicDir, 'qr-whatsapp.svg'))
         ) : null
       }
 
-      <aside class="qr-card" aria-label="Website QR code">
-        <h2 style="font-size:1.15rem;margin:0">{dict.share.websiteQrTitle}</h2>
-        <p class="qr-card-lead">{dict.share.websiteQrLead}</p>
-        <img
-          class="qr-image"
-          src={site.qrImage}
-          alt={`QR code — ${site.domain}`}
-          width="512"
-          height="512"
-          loading="lazy"
-          decoding="async"
-        />
-        <div>
-          <p class="label" style="margin:0 0 0.35rem;font-weight:700;color:var(--yellow-deep)">
-            {dict.share.linkLabel}
-          </p>
-          <a href={site.domain} target="_blank" rel="noopener noreferrer">
-            {site.domain.replace('https://', '')}
-          </a>
-        </div>
-        <div class="hero-actions share-actions" style="justify-content:center;margin:0">
-          <a
-            class="btn btn-whatsapp"
-            href={waShareHref}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {dict.share.whatsappShare}
-          </a>
-          <a class="btn btn-primary" href={emailShareHref}>
-            {dict.share.emailShare}
-          </a>
-          <a class="btn btn-ghost" href={site.qrImage} download="findmynakshatra-website-qr.png">
-            {dict.share.downloadSite}
-          </a>
-        </div>
-        <p class="note" style="margin:0">{dict.share.tip}</p>
-      </aside>
+      {
+        showWebsiteQr ? (
+          <aside class="qr-card" aria-label="Website QR code">
+            <h2 style="font-size:1.15rem;margin:0">{dict.share.websiteQrTitle}</h2>
+            <p class="qr-card-lead">{dict.share.websiteQrLead}</p>
+            <img
+              class="qr-image"
+              src={site.qrImage}
+              alt={`QR code — ${site.domain}`}
+              width="512"
+              height="512"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <p class="label" style="margin:0 0 0.35rem;font-weight:700;color:var(--yellow-deep)">
+                {dict.share.linkLabel}
+              </p>
+              <a href={site.domain} target="_blank" rel="noopener noreferrer">
+                {site.domain.replace('https://', '')}
+              </a>
+            </div>
+            <div class="hero-actions share-actions" style="justify-content:center;margin:0">
+              <a
+                class="btn btn-whatsapp"
+                href={waShareHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {dict.share.whatsappShare}
+              </a>
+              <a class="btn btn-primary" href={emailShareHref}>
+                {dict.share.emailShare}
+              </a>
+              <a class="btn btn-ghost" href={site.qrImage} download="findmynakshatra-website-qr.png">
+                {dict.share.downloadSite}
+              </a>
+            </div>
+            <p class="note" style="margin:0">{dict.share.tip}</p>
+          </aside>
+        ) : null
+      }
     </div>
   ) : (
     <div class="qr-compact" aria-label="QR code">

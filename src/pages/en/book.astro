@@ -24,7 +24,7 @@ const wa = whatsappUrl(dict.book.whatsappPrefill);
     </div>
   </section>
   <section class="section" style="padding-top:0">
-    <div class="container" style="display:grid;gap:2rem;grid-template-columns:1.2fr 1fr">
+    <div class="container page-split">
       <div>
         <h2 style="font-size:1.25rem">{dict.book.checklistTitle}</h2>
         <ul class="checklist">
@@ -56,15 +56,7 @@ const wa = whatsappUrl(dict.book.whatsappPrefill);
           </ul>
         </aside>
       </div>
-      <QrBlock dict={dict} variant="card" />
+      <QrBlock dict={dict} variant="card" focus="booking" />
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  @media (max-width: 800px) {
-    section.section > .container {
-      grid-template-columns: 1fr !important;
-    }
-  }
-</style>

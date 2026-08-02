@@ -24,7 +24,7 @@ const wa = whatsappUrl(dict.book.whatsappPrefill);
     </div>
   </section>
   <section class="section" style="padding-top:0">
-    <div class="container" style="display:grid;gap:2rem;grid-template-columns:1.1fr 0.9fr;align-items:start">
+    <div class="container page-split">
       <div class="contact-list">
         <div class="contact-item">
           <span class="label">{dict.contact.emailLabel}</span>
@@ -49,7 +49,7 @@ const wa = whatsappUrl(dict.book.whatsappPrefill);
                 }
               </>
             ) : (
-              <span>WhatsApp அமைக்கப்படவில்லை</span>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
             )
           }
         </div>
@@ -65,15 +65,7 @@ const wa = whatsappUrl(dict.book.whatsappPrefill);
           <a class="btn btn-primary" href={dict.paths.book}>{dict.ctaBand.button}</a>
         </p>
       </div>
-      <QrBlock dict={dict} variant="card" />
+      <QrBlock dict={dict} variant="card" focus="booking" />
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  @media (max-width: 800px) {
-    section.section > .container {
-      grid-template-columns: 1fr !important;
-    }
-  }
-</style>
