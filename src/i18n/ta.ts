@@ -211,7 +211,7 @@ export const ta = {
     emailShare: 'மின்னஞ்சலில் பகிர்',
     emailSubject: 'Find My Nakshatra — வேத ஜோதிட ஆலோசனை',
     message:
-      'Find My Nakshatra — தமிழ் & ஆங்கிலத்தில் வேத ஜோதிட ஆலோசனை. பார்க்க: https://findmynakshatra.com',
+      'Find My Nakshatra — தமிழ் & ஆங்கிலத்தில் வேத ஜோதிட ஆலோசனை. பார்க்க: https://www.findmynakshatra.com',
     bookQrTitle: 'WhatsApp',
     bookQrLead: '',
     bookQrTip: '',

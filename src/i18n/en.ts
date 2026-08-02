@@ -213,7 +213,7 @@ export const en = {
     emailShare: 'Share by email',
     emailSubject: 'Find My Nakshatra — Vedic astrology consultation',
     message:
-      'Find My Nakshatra — Vedic astrology consultation in English & Tamil. Visit https://findmynakshatra.com',
+      'Find My Nakshatra — Vedic astrology consultation in English & Tamil. Visit https://www.findmynakshatra.com',
     bookQrTitle: 'WhatsApp',
     bookQrLead: '',
     bookQrTip: '',

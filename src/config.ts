@@ -18,7 +18,7 @@ const phoneDisplay =
 
 export const site = {
   name: 'Find My Nakshatra',
-  domain: 'https://findmynakshatra.com',
+  domain: 'https://www.findmynakshatra.com',
   email: 'contact@findmynakshatra.com',
   owner: 'Sivaraman',
   city: 'Bangalore',

@@ -41,7 +41,7 @@ export const legalEn = {
   termsSections: [
     {
       title: '1. Acceptance',
-      body: 'By using findmynakshatra.com or booking a consultation, you agree to these Terms. If you do not agree, do not use the service.',
+      body: 'By using www.findmynakshatra.com or booking a consultation, you agree to these Terms. If you do not agree, do not use the service.',
     },
     {
       title: '2. Eligibility',

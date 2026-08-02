@@ -158,7 +158,7 @@ Typical Vercel instructions (always prefer what **your** Vercel screen shows):
 Some accounts show a **CNAME** for apex via Vercel nameservers — follow the UI for your project.
 
 5. Choose redirect: recommend **www → apex** or **apex → www** (pick one).  
-   Common choice: **`www.findmynakshatra.com` redirects to `findmynakshatra.com`**.
+   Common choice (matches current Vercel setup): **`findmynakshatra.com` redirects to `www.findmynakshatra.com`**.
 
 ### Step 4.2 — Status meanings in Vercel
 
@@ -288,7 +288,7 @@ Vercel **auto-deploys** on push to `main`. Check the Deployments tab for success
 cd findmynakshatra
 node -e "
 const QRCode = require('qrcode');
-QRCode.toFile('public/qr-findmynakshatra.png', 'https://findmynakshatra.com', {
+QRCode.toFile('public/qr-findmynakshatra.png', 'https://www.findmynakshatra.com', {
   width: 512, margin: 2,
   color: { dark: '#232F3E', light: '#FFFFFF' }
 }).then(() => console.log('Website QR updated'));
@@ -379,11 +379,11 @@ Security headers live in `vercel.json` (CSP, HSTS, X-Frame-Options, etc.). Re-ch
 
 | Purpose | URL |
 |---------|-----|
-| Production site | https://findmynakshatra.com |
-| English home | https://findmynakshatra.com/en/ |
-| Tamil home | https://findmynakshatra.com/ta/ |
-| Share / QR | https://findmynakshatra.com/en/share/ |
-| Sitemap | https://findmynakshatra.com/sitemap-index.xml |
+| Production site | https://www.findmynakshatra.com |
+| English home | https://www.findmynakshatra.com/en/ |
+| Tamil home | https://www.findmynakshatra.com/ta/ |
+| Share / QR | https://www.findmynakshatra.com/en/share/ |
+| Sitemap | https://www.findmynakshatra.com/sitemap-index.xml |
 | Vercel dashboard | https://vercel.com/dashboard |
 | Namecheap domains | https://ap.www.namecheap.com/domains/list/ |
 | Zoho Mail | https://mail.zoho.com |
