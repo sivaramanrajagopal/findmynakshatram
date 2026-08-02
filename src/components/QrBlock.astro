@@ -30,6 +30,11 @@ const hasWhatsappQr =
 const waQrSrc = fs.existsSync(path.join(publicDir, 'qr-whatsapp.svg'))
   ? site.qrWhatsappImage
   : site.qrWhatsappPng;
+
+const bookLead = dict.share.bookQrLead.trim();
+const bookTip = dict.share.bookQrTip.trim();
+const siteLead = dict.share.websiteQrLead.trim();
+const siteTip = dict.share.tip.trim();
 ---
 
 {
@@ -48,7 +53,7 @@ const waQrSrc = fs.existsSync(path.join(publicDir, 'qr-whatsapp.svg'))
               </svg>
               <h2>{dict.share.bookQrTitle}</h2>
             </div>
-            <p class="qr-card-lead">{dict.share.bookQrLead}</p>
+            {bookLead ? <p class="qr-card-lead">{bookLead}</p> : null}
             <a class="qr-scan-target" href={waBookHref} target="_blank" rel="noopener noreferrer">
               <img
                 class="qr-image"
@@ -68,7 +73,7 @@ const waQrSrc = fs.existsSync(path.join(publicDir, 'qr-whatsapp.svg'))
                 {dict.share.downloadWa}
               </a>
             </div>
-            <p class="note" style="margin:0">{dict.share.bookQrTip}</p>
+            {bookTip ? <p class="note" style="margin:0">{bookTip}</p> : null}
           </aside>
         ) : null
       }
@@ -77,7 +82,7 @@ const waQrSrc = fs.existsSync(path.join(publicDir, 'qr-whatsapp.svg'))
         showWebsiteQr ? (
           <aside class="qr-card" aria-label="Website QR code">
             <h2 style="font-size:1.15rem;margin:0">{dict.share.websiteQrTitle}</h2>
-            <p class="qr-card-lead">{dict.share.websiteQrLead}</p>
+            {siteLead ? <p class="qr-card-lead">{siteLead}</p> : null}
             <img
               class="qr-image"
               src={site.qrImage}
@@ -111,7 +116,7 @@ const waQrSrc = fs.existsSync(path.join(publicDir, 'qr-whatsapp.svg'))
                 {dict.share.downloadSite}
               </a>
             </div>
-            <p class="note" style="margin:0">{dict.share.tip}</p>
+            {siteTip ? <p class="note" style="margin:0">{siteTip}</p> : null}
           </aside>
         ) : null
       }
