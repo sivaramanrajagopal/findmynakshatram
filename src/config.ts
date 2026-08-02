@@ -31,7 +31,7 @@ export const site = {
   /** Recommended: false — button says "WhatsApp", not the digits */
   showPhonePublicly: false as boolean,
   appUrl: '',
-  ogImage: '/ganesha-om.png',
+  ogImage: '/og-image.png',
   qrImage: '/qr-findmynakshatra.png',
   geo: {
     placename: 'Bangalore',
